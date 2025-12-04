@@ -92,9 +92,9 @@ section {
     box-sizing: border-box;
 }
 
+/* ===== САЙДБАР ===== */
 .side-bar {
-    width: 100%;
-    max-width: 280px;
+    width: 280px;
     background-color: var(--primary-color);
     color: var(--white);
     padding: 2rem 1.5rem;
@@ -107,6 +107,7 @@ section {
     z-index: 1000;
     overflow-y: auto;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
 }
 
 .side-bar__logo {
@@ -670,6 +671,9 @@ section {
     margin: 0;
 }
 
+/* ===== МЕДИАЗАПРОСЫ ===== */
+
+/* Ноутбуки (меньше 1200px) */
 @media (max-width: 1200px) {
     .side-bar {
         width: 240px;
@@ -707,6 +711,7 @@ section {
     }
 }
 
+/* Планшеты (меньше 992px) */
 @media (max-width: 992px) {
     body {
         flex-direction: column;
@@ -724,6 +729,8 @@ section {
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         max-width: 100%;
         margin-bottom: 0;
+        top: 0;
+        left: 0;
     }
     
     .side-bar__logo {
@@ -809,6 +816,7 @@ section {
     }
 }
 
+/* Планшеты вертикально и мобильные (меньше 768px) */
 @media (max-width: 768px) {
     html {
         font-size: 14px;
@@ -830,11 +838,26 @@ section {
         flex-direction: column;
         text-align: center;
         padding: 1.25rem;
+        height: auto;
+        min-height: auto;
     }
     
     .side-bar__logo {
         text-align: center;
         margin-bottom: 1.5rem;
+        width: 100%;
+    }
+    
+    .side-bar__logo-main {
+        font-size: 1.75rem;
+    }
+    
+    .side-bar__logo-subtitle {
+        font-size: 0.7rem;
+        margin-top: 0.25rem;
+    }
+    
+    .side-bar__nav {
         width: 100%;
     }
     
@@ -845,11 +868,16 @@ section {
         justify-content: center;
     }
     
+    .side-bar__item {
+        width: 100%;
+    }
+    
     .side-bar__link {
         width: 100%;
         text-align: center;
         padding: 0.75rem;
         margin-bottom: 0.25rem;
+        font-size: 0.9rem;
     }
     
     .main-content {
@@ -914,6 +942,7 @@ section {
     }
 }
 
+/* Мобильные (меньше 576px) */
 @media (max-width: 576px) {
     html {
         font-size: 13px;
@@ -934,12 +963,16 @@ section {
         margin-bottom: 1rem;
     }
     
+    .side-bar {
+        padding: 1rem;
+    }
+    
     .side-bar__logo-main {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
     }
     
     .side-bar__logo-subtitle {
-        font-size: 0.7rem;
+        font-size: 0.6rem;
         letter-spacing: 0.5px;
     }
     
@@ -998,31 +1031,37 @@ section {
     }
 }
 
+/* Очень маленькие экраны (меньше 400px) */
 @media (max-width: 400px) {
     html {
         font-size: 12px;
     }
     
     .side-bar {
-        padding: 1rem;
+        padding: 0.75rem;
+    }
+    
+    .side-bar__logo {
+        margin-bottom: 1rem;
     }
     
     .side-bar__logo-main {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
     
     .side-bar__logo-subtitle {
-        font-size: 0.6rem;
+        font-size: 0.5rem;
         letter-spacing: 0.25px;
     }
     
     .side-bar__link {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
         padding: 0.5rem;
+        margin-bottom: 0.25rem;
     }
     
     .main-content {
-        padding: 1rem;
+        padding: 0.75rem;
     }
     
     .button {
@@ -1064,22 +1103,30 @@ section {
     }
     
     .masonry-item--short {
-        min-height: 140px;
+        min-height: 120px;
+        padding: 1rem;
     }
     
     .masonry-item--tall {
-        min-height: 200px;
+        min-height: 160px;
+        padding: 1rem;
     }
     
     .masonry-item--very-tall {
-        min-height: 260px;
+        min-height: 200px;
+        padding: 1rem;
     }
     
     .footer__info {
         font-size: 0.75rem;
     }
+    
+    .footer__nav ul {
+        gap: 0.5rem;
+    }
 }
 
+/* Большие экраны (больше 1600px) */
 @media (min-width: 1600px) {
     .side-bar {
         width: 320px;
@@ -1092,6 +1139,7 @@ section {
     }
 }
 
+/* Стили для печати */
 @media print {
     .side-bar,
     .footer,
